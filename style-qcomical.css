@@ -143,3 +143,11 @@ th {
 .organisers li {
 	margin-bottom: 0.4em;
 }
+
+.tagline {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #222;
+  margin-top: -1em;
+  margin-bottom: 0.5em;
+}
