@@ -100,6 +100,11 @@ a:hover {
   border: 1px solid #ccc;
 }
 
+.schedule td.empty {
+  border: none !important;
+  background: transparent;
+}
+
 th {
   background-color: #f2f2f2;
   font-weight: bold;

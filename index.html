@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QCOMICAL School 2025</title>
   <LINK rel="shortcut icon" href="favqcomical.png" type="image/x-icon">
-  <link rel="stylesheet" href="style-qcomical.css?v=19">
+  <link rel="stylesheet" href="style-qcomical.css?v=20">
 </head>
 <body>
   <div class="logo-container">
@@ -62,7 +62,7 @@
     <tbody>
       <tr class="row-120">
 	<td>9:30 – 11:30</td>
-	<td></td>
+	<td class="empty"></td>
 	<td class="quantum-languages">Quantum Programming Languages</td>
 	<td class="concurrency">Concurrency</td>
 	<td class="optics">Quantum Linear Optics</td>
@@ -71,12 +71,12 @@
 
       <tr class="row-30">
 	<td class="coffee">11:30 – 12:00</td>
-	<td></td>
+	<td class="empty"></td>
 	<td colspan="4" class="coffee">Coffee break</td>
       </tr>
       <tr class="row-60">
 	<td>12:00 – 13:00</td>
-	<td></td>
+	<td class="empty"></td>
 	<td class="realisability">Realisability</td>
 	<td class="quantum-languages">Quantum Programming Languages</td>
 	<td class="quantitative">Quantitative Types</td>
@@ -85,7 +85,7 @@
 
       <tr class="row-30">
 	<td class="lunch">13:00 – 13:30</td>
-	<td></td>
+	<td class="empty"></td>
 	<td colspan="4" rowspan="2"2 class="lunch">Lunch break</td>
       </tr>
 
@@ -94,7 +94,6 @@
 	<td class="qc" rowspan="2">Tutorial: Introduction to Quantum Computing</td>
       </tr>
 
-      <!-- 13:30–14:30: lun-jue mantienen bloque de 2h con rowspan=2; vie: Industrial -->
       <tr class="row-60">
 	<td>14:30 – 15:30</td>
 	<td class="realisability">Realisability</td>
@@ -103,14 +102,11 @@
 	<td class="optics" rowspan="3">Quantum Linear Optics</td>
       </tr>
 
-      <!-- 15:30–16:00: coffee solo lun–jue; el viernes lo cubre el rowspan de QLO -->
       <tr class="row-30">
 	<td class="coffee">15:30 – 16:00</td>
 	<td colspan="4" class="coffee">Coffee break</td>
-	<!-- Viernes ocupado por rowspan de QLO -->
       </tr>
 
-      <!-- 16:00–16:30: dividimos el bloque final; lun–jue conservan 16–18 con rowspan=2 -->
       <tr class="row-30">
 	<td>16:00 – 16:30</td>
 	<td class="zx" rowspan="2">Tutorial: Introduction to ZX Calculus</td>
@@ -119,11 +115,9 @@
 	<td class="quantum-languages" rowspan="2">Quantum Programming Languages</td>
       </tr>
 
-      <!-- 16:30–18:00: cierra el día; viernes vacío -->
       <tr class="row-90">
 	<td>16:30 – 18:00</td>
-	<!-- celdas lun–jue ya cubiertas por los rowspans de la fila anterior -->
-	<td></td>
+	<td class="empty"></td>
       </tr>
     </tbody>
   </table>
