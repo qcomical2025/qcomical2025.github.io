@@ -62,6 +62,10 @@ a:hover {
   height: 20px;
 }
 
+.schedule tr.row-60 td {
+	height: 40px;
+}
+
 .schedule tr.row-120 td {
   height: 80px;
 }
@@ -112,6 +116,11 @@ th {
 
 .quantum-languages {
   background-color: #ffe0b2;
+}
+
+.industrial {
+  background-color: #b2ebff;
+  font-style: italic;
 }
 
 .realisability {
