@@ -44,6 +44,24 @@ h1, h2 {
   height: auto;
 }
 
+.hosted-by {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  color: #444;
+}
+
+.hosted-by p {
+  margin-bottom: 0.5em;
+}
+
+.hosted-by img {
+  max-width: 160px;   /* nunca más grande que el logo de la UE */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 a {
   color: #0073e6;
   text-decoration: none;
