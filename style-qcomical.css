@@ -230,3 +230,66 @@ th {
   margin: 20px 0;
   border-radius: 6px;
 }
+
+/* Sponsors */
+#sponsors { margin-top: 2.2em; }
+
+.sponsors {
+  background: #fff;
+  border: 1px solid #ddd;   /* borde externo limpio */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sponsors .tier {
+  padding: 14px 16px;
+  /* por defecto, SIN línea punteada */
+  border-top: none;
+}
+
+/* Línea punteada SOLO entre categorías visibles */
+.sponsors .tier:not(:has(.logos:empty)) + .tier:not(:has(.logos:empty)) {
+  border-top: 2px dashed #d7d7d7;
+}
+
+.sponsors h3 {
+  margin: 0 0 8px;
+  font-size: 1.05em;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.sponsors .logos {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  justify-content: center;
+  gap: 18px;
+  align-items: center;
+  min-height: 70px;   /* más alto para logos grandes */
+  text-align: center;
+}
+
+/* Tamaños por categoría */
+.sponsors .tier-diamond img   { max-height: 100px; width: auto; }
+.sponsors .tier-platinum img  { max-height: 80px;  width: auto; }
+.sponsors .tier-gold img      { max-height: 70px;  width: auto; }
+.sponsors .tier-silver img    { max-height: 60px;  width: auto; }
+
+.sponsors .logo img {
+  display: block;
+  height: auto;
+  filter: none;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .sponsors .logos { grid-auto-flow: row; gap: 12px; }
+  .sponsors .tier-diamond img  { max-height: 80px; }
+  .sponsors .tier-platinum img { max-height: 65px; }
+  .sponsors .tier-gold img     { max-height: 55px; }
+  .sponsors .tier-silver img   { max-height: 48px; }
+}
+
+/* Ocultar categorías sin logos */
+.sponsors .tier:has(.logos:empty) { display: none; }
