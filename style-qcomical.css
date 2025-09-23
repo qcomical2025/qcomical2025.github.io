@@ -263,8 +263,9 @@ th {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
-  justify-content: center;
-  gap: 18px;
+  justify-content: space-evenly;   /* reparte el espacio entre logos */
+  gap: 36px;                       /* más aire entre logos */
+  padding: 8px 24px;               /* evita que queden pegados al borde */
   align-items: center;
   min-height: 70px;   /* más alto para logos grandes */
   text-align: center;
