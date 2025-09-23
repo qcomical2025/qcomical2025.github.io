@@ -293,3 +293,54 @@ th {
 
 /* Ocultar categorías sin logos */
 .sponsors .tier:has(.logos:empty) { display: none; }
+
+/* Cursos con abstracts plegables */
+.lecturers { list-style: none; padding-left: 0; }
+.lecturers li { margin: 0 0 0.6em 0; }
+
+.course {
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0;               /* el padding va en summary y abstract */
+}
+
+.course[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+.course summary {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  padding: 10px 12px;
+  cursor: pointer;
+  list-style: none;         /* oculta el triángulo nativo en algunos navegadores */
+}
+
+/* Ocultar marcador nativo y poner uno custom */
+.course summary::-webkit-details-marker { display: none; }
+.course summary::before {
+  content: "▸";
+  flex: 0 0 auto;
+  transform: translateY(1px);
+}
+.course[open] summary::before { content: "▾"; }
+
+.course-title {
+  font-weight: 600;
+  color: #2c3e50;           /* consistente con tus h1/h2 */
+}
+
+/* Hover/focus accesibles */
+.course summary:hover { background: #f7f9ff; }
+.course summary:focus { outline: 2px solid #a8c3ff; outline-offset: 2px; }
+
+/* Cuerpo del abstract */
+.course .abstract {
+  padding: 10px 12px 12px 34px;  /* sangría para alinear con el caret */
+  border-top: 1px solid #eee;
+  color: #333;
+  line-height: 1.45;
+  text-align: justify;
+}
+
+.course .abstract p { margin: 0.4em 0; }
