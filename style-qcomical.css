@@ -301,9 +301,10 @@ th {
 .course {
   border: 1px solid #e3e3e3;
   border-radius: 8px;
-  background: #fff;
   padding: 0;               /* el padding va en summary y abstract */
 }
+
+
 
 .course[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 
@@ -330,9 +331,6 @@ th {
   color: #2c3e50;           /* consistente con tus h1/h2 */
 }
 
-/* Hover/focus accesibles */
-.course summary:hover { background: #f7f9ff; }
-.course summary:focus { outline: 2px solid #a8c3ff; outline-offset: 2px; }
 
 /* Cuerpo del abstract */
 .course .abstract {
