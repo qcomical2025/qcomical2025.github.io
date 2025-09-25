@@ -149,7 +149,34 @@
 	<div class="abstract">
 	  <p>
 	  Abstract:
-	  TBA
+	  Intersection type systems are type systems for lambda-calculi that incorporate
+	  a type constructor A∩B. Intersection is a form of polymorphism: a term t can be
+	  assigned an intersection type A∩B whenever it behaves both as a term of type A
+	  and as a term of type B. One interesting aspect of these systems is that they
+	  can be used to characterise notions of normalisation. For example, a term is
+	  typable in Coppo and Dezani's system if and only if it is strongly normalising.
+	  <br><br>
+	  More recently, non-idempotent intersection type systems have been introduced.
+	  These systems incorporate an intersection type constructor A∩B which is not
+	  idempotent, i.e. A∩A and A are not equivalent. Non-idempotent intersection is
+	  akin to multiplicative conjunction (A⊗B) in Linear Logic. This intuitively
+	  means that terms can be understood as resources, and that each subterm must be
+	  typed as many times as it is going to be used in a reduction to normal form.
+	  <br><br>
+	  Just as in the idempotent case, the existence of a typing derivation can be
+	  used to obtain qualitative information about the behaviour of a program (such
+	  as termination). The interesting difference is that typing derivations in
+	  systems with non-idempotent intersection also provide *quantitative*
+	  information about the behaviour of a program (such as the length of the
+	  reduction to normal form). These systems usually provide quantitative upper
+	  bounds. It is possible to refine them to be "tight", i.e. to provide exact
+	  quantitative measures.
+	  <br><br>
+	  In this course, we will study how quantitative type systems can be designed to
+	  capture notions of normalisation (head, weak, and strong normalisation), to
+	  provide upper bounds, and how they can be refined to obtain exact bounds. We
+	  will also mention some applications, and in particular, normalisation of
+	  reduction strategies and observational equivalence of calculi.
 	  </p>
 	</div>
       </details>
