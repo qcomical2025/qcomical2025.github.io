@@ -344,25 +344,39 @@ th {
 
 .course .abstract p { margin: 0.4em 0; }
 
-/* Que ningún logo desborde horizontalmente */
-.sponsors .logo {
-  max-width: 100%;
-}
-.sponsors .logo img {
-  max-width: 100%;   /* <- clave */
-  height: auto;      /* respeta proporciones */
-  object-fit: contain;
+/* Para sponsors en el móvil */
+@media (max-width: 560px) {
+  /* Hacer que cada fila de logos sea realmente una columna apilada */
+  .sponsors .logos {
+    display: grid;
+    grid-auto-flow: row;          /* apilar */
+    grid-auto-columns: unset;     /* anula el max-content que rompe en iOS */
+    grid-template-columns: 1fr;   /* una columna centrada */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+  }
+
+  /* Centrado y contención estricta del logo */
+  .sponsors .logo {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+  }
+  .sponsors .logo img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Alturas un poco menores en móvil, manteniendo jerarquía */
+  .sponsors .tier-diamond img { max-height: 80px; }
+  .sponsors .tier-gold img    { max-height: 65px; }
+  .sponsors .tier-silver img  { max-height: 50px; }
 }
 
-/* En móvil apilá y achicá padding para que no “corte” */
-@media (max-width: 560px) {
-  .sponsors .logos {
-    grid-auto-flow: row;  /* ya lo tenías, lo reafirmo */
-    gap: 12px;
-    padding: 8px 12px;    /* menos margen lateral */
-    justify-content: center;
-  }
-}
+/* Para el programa en el movil */
 
 @media (max-width: 560px) {
   .schedule {
