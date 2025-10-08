@@ -343,3 +343,57 @@ th {
 }
 
 .course .abstract p { margin: 0.4em 0; }
+
+/* Que ningún logo desborde horizontalmente */
+.sponsors .logo {
+  max-width: 100%;
+}
+.sponsors .logo img {
+  max-width: 100%;   /* <- clave */
+  height: auto;      /* respeta proporciones */
+  object-fit: contain;
+}
+
+/* En móvil apilá y achicá padding para que no “corte” */
+@media (max-width: 560px) {
+  .sponsors .logos {
+    grid-auto-flow: row;  /* ya lo tenías, lo reafirmo */
+    gap: 12px;
+    padding: 8px 12px;    /* menos margen lateral */
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .schedule {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .schedule table {
+    /* SIN table-layout: fixed */
+    min-width: 900px;   /* ancho mínimo cómodo para 6 columnas */
+    width: 100%;
+  }
+  .schedule th, .schedule td {
+    padding: 0.3em;
+    font-size: 12px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .schedule td:first-child,
+  .schedule th:first-child {
+    min-width: 80px;
+    font-size: 11px;
+  }
+
+  /* (Opcional, muy útil): primera columna fija al hacer scroll */
+  .schedule td:first-child,
+  .schedule th:first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;   /* o #f2f2f2 para el th */
+    z-index: 2;
+  }
+  .schedule th:first-child { background: #f2f2f2; z-index: 3; }
+}
+
