@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QCOMICAL School 2025</title>
   <LINK rel="shortcut icon" href="favqcomical.png" type="image/x-icon">
-  <link rel="stylesheet" href="style-qcomical.css?v=32">
+  <link rel="stylesheet" href="style-qcomical.css?v=34">
 </head>
 <body>
   <div class="logo-container">
@@ -237,81 +237,116 @@
   </ul>
 
   <h2 id="schedule">Schedule</h2>
-<div class="schedule">
-  <table>
-    <thead>
-      <tr>
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="row-120">
-	<td>9:30 – 11:30</td>
-	<td class="empty"></td>
-	<td class="quantum-languages">Quantum Programming Languages</td>
-	<td class="concurrency">Concurrency</td>
-	<td class="optics">Quantum Linear Optics</td>
-	<td class="quantitative">Quantitative Types</td>
-      </tr>
+  <div class="schedule">
+    <table>
+      <thead>
+	<tr>
+	  <th>Time</th>
+	  <th>Monday</th>
+	  <th>Tuesday</th>
+	  <th>Wednesday</th>
+	  <th>Thursday</th>
+	  <th>Friday</th>
+	</tr>
+      </thead>
+      <tbody>
+	<!-- 9:30–10:00 -->
+	<tr class="row-30">
+	  <td>9:30 – 10:00</td>
+	  <td class="empty"></td>
+	  <td class="quantum-languages" rowspan="3">Quantum Programming Languages</td>
+	  <td class="concurrency" rowspan="3">Concurrency</td>
+	  <td class="optics" rowspan="3">Quantum Linear Optics</td>
+	  <td class="empty"></td>
+	</tr>
 
-      <tr class="row-30">
-	<td class="coffee">11:30 – 12:00</td>
-	<td class="empty"></td>
-	<td colspan="4" class="coffee">Coffee break</td>
-      </tr>
-      <tr class="row-60">
-	<td>12:00 – 13:00</td>
-	<td class="empty"></td>
-	<td class="realisability">Realisability</td>
-	<td class="quantum-languages">Quantum Programming Languages</td>
-	<td class="quantitative">Quantitative Types</td>
-	<td class="industrial">Industrial Session</td>
-      </tr>
+	<!-- 10:00–10:30 -->
+	<tr class="row-30">
+	  <td class="coffee">10:00 – 10:30</td>
+	  <td class="empty"></td>
+	  <td class="coffee">Coffee</td>
+	</tr>
 
-      <tr class="row-30">
-	<td class="lunch">13:00 – 13:30</td>
-	<td>Registration</td>
-	<td colspan="4" rowspan="2" class="lunch">Lunch break</td>
-      </tr>
+	<!-- 10:30–11:30 -->
+	<tr class="row-60">
+	  <td>10:30 – 11:30</td>
+	  <td class="empty"></td>
+	  <td class="quantitative" rowspan="3">Quantitative Types</td>
+	</tr>
 
-      <tr class="row-60">
-	<td class="lunch">13:30 – 14:30</td>
-	<td class="qc" rowspan="2">Tutorial: Introduction to Quantum Computing</td>
-      </tr>
+	<!-- 11:30–12:00 -->
+	<tr class="row-30">
+	  <td class="coffee">11:30 – 12:00</td>
+	  <td class="empty"></td>
+	  <td colspan="3" class="coffee">Coffee break</td>
+	  <!-- Friday column is occupied by the rowspan above -->
+	</tr>
 
-      <tr class="row-60">
-	<td>14:30 – 15:30</td>
-	<td class="realisability">Realisability</td>
-	<td class="quantum-languages">Quantum Programming Languages</td>
-	<td class="quantitative">Quantitative Types</td>
-	<td class="optics" rowspan="3">Quantum Linear Optics</td>
-      </tr>
+	<!-- 12:00–12:30 -->
+	<tr class="row-30">
+	  <td>12:00 – 12:30</td>
+	  <td class="empty"></td>
+	  <td class="realisability" rowspan="2">Realisability</td>
+	  <td class="quantum-languages" rowspan="2">Quantum Programming Languages</td>
+	  <td class="quantitative" rowspan="2">Quantitative Types</td>
+	  <!-- Friday column continues Quantitative Types (rowspan) -->
+	</tr>
 
-      <tr class="row-30">
-	<td class="coffee">15:30 – 16:00</td>
-	<td colspan="4" class="coffee">Coffee break</td>
-      </tr>
+	<!-- 12:30–13:00 -->
+	<tr class="row-30">
+	  <td>12:30 – 13:00</td>
+	  <td class="empty"></td>
+	  <!-- <td class="industrial"><a href="https://www.quantinuum.com">Quantinuum</a></td> -->
+	  <td class="logo-cell">
+	    <a href="https://www.quantinuum.com"><img src="quantinuum-logo.png" alt="Quantinuum"></a>
+	  </td>
+	</tr>
 
-      <tr class="row-30">
-	<td>16:00 – 16:30</td>
-	<td class="zx" rowspan="2">Tutorial: Introduction to ZX Calculus</td>
-	<td class="concurrency" rowspan="2">Concurrency</td>
-	<td class="realisability" rowspan="2">Realisability</td>
-	<td class="quantum-languages" rowspan="2">Quantum Programming Languages</td>
-      </tr>
+	<!-- 13:00–13:30 -->
+	<tr class="row-30">
+	  <td class="lunch">13:00 – 13:30</td>
+	  <td>Registration</td>
+	  <td colspan="4" rowspan="2" class="lunch">Lunch break</td>
+	</tr>
 
-      <tr class="row-90">
-	<td>16:30 – 18:00</td>
-	<td class="empty"></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+	<!-- 13:30–14:30 -->
+	<tr class="row-60">
+	  <td class="lunch">13:30 – 14:30</td>
+	  <td class="qc" rowspan="2">Tutorial: Introduction to Quantum Computing</td>
+	</tr>
+
+	<!-- 14:30–15:30 -->
+	<tr class="row-60">
+	  <td>14:30 – 15:30</td>
+	  <td class="realisability">Realisability</td>
+	  <td class="quantum-languages">Quantum Programming Languages</td>
+	  <td class="quantitative">Quantitative Types</td>
+	  <td class="optics" rowspan="3">Quantum Linear Optics</td>
+	</tr>
+
+	<!-- 15:30–16:00 -->
+	<tr class="row-30">
+	  <td class="coffee">15:30 – 16:00</td>
+	  <td colspan="4" class="coffee">Coffee break</td>
+	</tr>
+
+	<!-- 16:00–16:30 -->
+	<tr class="row-30">
+	  <td>16:00 – 16:30</td>
+	  <td class="zx" rowspan="2">Tutorial: Introduction to ZX Calculus</td>
+	  <td class="concurrency" rowspan="2">Concurrency</td>
+	  <td class="realisability" rowspan="2">Realisability</td>
+	  <td class="quantum-languages" rowspan="2">Quantum Programming Languages</td>
+	</tr>
+
+	<!-- 16:30–18:00 -->
+	<tr class="row-90">
+	  <td>16:30 – 18:00</td>
+	  <td class="empty"></td>
+	</tr>
+      </tbody>
+    </table>
+  </div>
   
 
   <h2 id="prereg">Registration</h2>

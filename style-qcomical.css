@@ -456,3 +456,19 @@ th {
     margin-left: 0;
   }
 }
+
+/* Logo dentro de una celda del programa */
+.schedule td.logo-cell {
+  background: #fff;  
+  padding: 2px;        
+}
+
+.schedule td.logo-cell img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;             /* ocupa el ancho disponible */
+  height: 100%;            /* se adapta al alto de la celda */
+  object-fit: contain;     /* mantiene proporciones 851x159 */
+  margin: 0 auto;
+}
