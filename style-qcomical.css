@@ -411,3 +411,48 @@ th {
   .schedule th:first-child { background: #f2f2f2; z-index: 3; }
 }
 
+/* Alinea contenido del summary: izquierda título + derecha slides */
+.course summary {
+  display: flex;
+  justify-content: space-between;  /* separa izquierda y derecha */
+  align-items: center;
+  flex-wrap: wrap;                 /* permite que baje si se achica */
+  gap: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Bloque izquierdo (titulo, nombre, institución) */
+.course summary .left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+}
+
+/* Bloque derecho (slides) */
+.course summary .right {
+  margin-left: auto;               /* empuja a la derecha */
+  white-space: nowrap;
+}
+
+/* Ajuste del triángulo indicador */
+.course summary::before {
+  content: "▸";
+  margin-right: 6px;
+}
+.course[open] summary::before {
+  content: "▾";
+}
+
+/* Responsive: en móvil, apilar slide abajo */
+@media (max-width: 560px) {
+  .course summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .course summary .right {
+    margin-left: 0;
+  }
+}
