@@ -145,7 +145,7 @@ typed code).</p>
 <div id="analytic-vs-synthetic-a-priori-vs-a-posteriori" class="slide section level3 unnumbered">
 <h1 class="unnumbered">Analytic vs synthetic, a priori vs a
 posteriori</h1>
-<p>Two useful categorisations of concepts  :</p>
+<p>Two useful categorisations of concepts :</p>
 <ul>
 <li><strong>Synthetic</strong> notions rely on the <em>meaning</em> of
 objects while <strong>analytic</strong> notions rely on their intrinsic
@@ -524,7 +524,7 @@ This element <span class="math inline"><em>a</em></span> is written
 <h4 class="unnumbered" id="completeness">Completeness</h4>
 <p>Combinatorial completeness is equivalent to the existence of <span class="math inline"><em>𝐊</em></span> and <span class="math inline"><em>𝐒</em></span> such that</p>
 <ul>
-<li>for all <span class="math inline"><em>x</em>, <em>y</em> ∈ <em>A</em></span>, <span class="math inline"><em>𝐊</em><em>x</em>↓</span> and <span class="math inline"><em>𝐊</em><em>x</em><em>y</em> = <em>y</em></span></li>
+<li>for all <span class="math inline"><em>x</em>, <em>y</em> ∈ <em>A</em></span>, <span class="math inline"><em>𝐊</em><em>x</em>↓</span> and <span class="math inline"><em>𝐊</em><em>x</em><em>y</em> = <em>x</em></span></li>
 <li>for all <span class="math inline"><em>x</em>, <em>y</em>, <em>z</em> ∈ <em>A</em></span>,
 <span class="math inline"><em>𝐒</em><em>x</em><em>y</em>↓</span> and
 <span class="math inline"><em>𝐒</em><em>x</em><em>y</em><em>z</em> = <em>x</em><em>z</em>(<em>y</em><em>z</em>)</span></li>
@@ -615,6 +615,8 @@ has Church numerals as generic realisers.</li>
 <li><a href="#classical-reasoning-and-control-flow" class="local-toc-link">Classical reasoning and control flow</a></li>
 <li><a href="#classical-realisability" class="local-toc-link">Classical
 realisability</a></li>
+<li><a href="#a-bit-of-model-theory" class="local-toc-link">A bit of
+model theory</a></li>
 </ul>
 </div>
 </div>
@@ -950,7 +952,7 @@ behaviours :</p>
 <tr class="odd">
 <td align="left"><span class="math inline"><em>P</em> × <em>Q</em></span></td>
 <td align="left"><span class="math inline">∀<em>α</em>.(<em>P</em> → <em>Q</em> → <em>α</em>) → <em>α</em></span></td>
-<td align="left"><span class="math inline">⟨<em>M</em>, <em>N</em>⟩ ∗ <em>p</em> ⋅ <em>π</em> ≻ <em>p</em> ∗ <em>M</em> ⋅ <em>N</em></span></td>
+<td align="left"><span class="math inline">⟨<em>M</em>, <em>N</em>⟩ ∗ <em>p</em> ⋅ <em>π</em> ≻ <em>p</em> ∗ <em>M</em> ⋅ <em>N</em> ⋅ <em>π</em></span></td>
 </tr>
 <tr class="even">
 <td align="left"><span class="math inline"><em>P</em> ∨ <em>Q</em></span></td>
@@ -972,7 +974,7 @@ ranges over falsity values, that is sets of stacks) :</p>
 <li>Assume <span class="math inline"><em>B</em> ⊩ ∀<em>α</em>.<em>α</em> → <em>α</em> → <em>α</em></span>
 for all choices of <span class="math inline">⫫</span>.</li>
 <li>Pick arbitrary <span class="math inline"><em>t</em><sub>0</sub></span>, <span class="math inline"><em>t</em><sub>1</sub></span> and <span class="math inline"><em>π</em></span>.</li>
-<li>Define <span class="math inline"> ⫫  := {<em>M</em> ∗ <em>π</em> ∣ ∃<em>b</em> ∈ {0, 1}, <em>M</em> ∗ <em>π</em> ≻ <em>t</em><sub><em>i</em></sub> ∗ <em>π</em>}</span>.</li>
+<li>Define <span class="math inline"> ⫫  := {<em>M</em> ∗ <em>π</em> ∣ ∃<em>b</em> ∈ {0, 1}, <em>M</em> ∗ <em>π</em> ≻ <em>t</em><sub><em>b</em></sub> ∗ <em>π</em>}</span>.</li>
 <li>Instantiate <span class="math inline"><em>α</em></span> as <span class="math inline">{<em>π</em>}</span>.</li>
 <li>Check that we have <span class="math inline"><em>t</em><sub><em>b</em></sub> ⊩ {<em>π</em>}</span>
 for each <span class="math inline"><em>b</em> ∈ {0, 1}</span>.</li>
@@ -1009,88 +1011,721 @@ that is <span class="math inline">∀<em>α</em>.¬<em>α</em> ∨ <em>α</e
 </table>
 <p>It can be generalised to more complex structures.</p>
 </div>
-<div id="first-order" class="slide section level3 unnumbered">
-<h1 class="unnumbered">First order</h1>
+
+<div id="a-bit-of-model-theory" class="title-slide slide section level2" number="3.3">
+<h1><span class="header-section-number">3.3</span> A bit of model
+theory</h1>
+
+</div>
+<div id="first-order-in-realisability" class="slide section level3 unnumbered">
+<h1 class="unnumbered">First order in realisability</h1>
+<h4 class="unnumbered" id="general-structure">General structure</h4>
+<p>The logical language can be extended to include first order :</p>
+<ul>
+<li>pick a first-order language (common choices : arithmetic, set
+theory)</li>
+<li>atomic formulas have the shape <span class="math inline"><em>α</em>(<em>t</em><sub>1</sub>, …, <em>t</em><sub><em>n</em></sub>)</span>
+where <span class="math inline"><em>α</em></span> is a predicate symbol
+or variable of arity <span class="math inline"><em>n</em></span></li>
+<li>interpret first-order terms and quantifiers in a structure <span class="math inline"><em>ℳ</em></span></li>
+<li>a predicate of arity <span class="math inline"><em>n</em></span> is
+interpreted as a function in <span class="math inline"><em>ℳ</em><sup><em>n</em></sup> → <em>𝒫</em>(<em>Π</em>)</span></li>
+</ul>
 <h4 class="unnumbered" id="equality">Equality</h4>
 <ul>
 <li>Definable à la Leibniz : <span class="math inline">(<em>s</em> = <em>t</em>) := ∀<em>α</em>.(<em>α</em>(<em>t</em>) → <em>α</em>(<em>u</em>))</span></li>
 <li>When <span class="math inline"><em>s</em> = <em>t</em></span> holds
 in the interpretation structure, <span class="math inline"><em>λ</em><em>x</em>.<em>x</em> ⊩ <em>s</em> = <em>t</em></span>.</li>
 </ul>
-<h4 class="unnumbered" id="arithmetics">Arithmetics</h4>
-<p><span class="math display"><em>ℕ</em>(<em>n</em>) := ∀<em>α</em>.((∀<em>x</em>.<em>α</em>(<em>x</em>) → <em>α</em>(<em>x</em> + 1)) → <em>α</em>(0) → <em>α</em>(<em>n</em>))</span></p>
+</div>
+<div id="realisability-models" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Realisability models</h1>
+<p>Pick a language and an interpretation structure <span class="math inline"><em>ℳ</em></span>.</p>
+<h4 class="unnumbered" id="consistency">Consistency</h4>
+<p>Given a first-order language and interpretation, each pole <span class="math inline">⫫</span> induces a theory <span class="math inline"><em>𝒯</em><sub>⫫</sub></span> : the set of formulas
+realised by proof-like terms.</p>
 <ul>
-<li><span class="math inline"><em>ℕ</em>(42)</span> specifies a Church
-numerals that iterates 42 times</li>
-<li>The type of a function is its specification : <span class="math inline">∀<em>m</em>.∀<em>n</em>.<em>ℕ</em>(<em>m</em>) → <em>ℕ</em>(<em>n</em>) → <em>ℕ</em>(<em>m</em> + <em>n</em>)</span></li>
-<li>Mathematical statements specify behaviours : <span class="math inline">∀<em>p</em>.∀<em>q</em>.(<em>ℕ</em>(<em>p</em>) → <em>ℕ</em>(<em>q</em>) → <em>p</em> × <em>q</em> = <em>n</em> → (<em>p</em> = 1 ∨ <em>q</em> = 1))</span></li>
-<li>Note : <span class="math inline">∀<em>x</em>.<em>ℕ</em>(<em>x</em>)</span> is
-generally not realisable, even when interpreting in <span class="math inline"><em>ℕ</em></span>.</li>
+<li>A pole <span class="math inline">⫫</span> is <em>consistent</em> if
+<span class="math inline"><em>𝒯</em><sub>⫫</sub></span> is, that is
+<span class="math inline">⊥ ∉ <em>𝒯</em><sub>⫫</sub></span></li>
 </ul>
-<h4 class="unnumbered" id="set-theory">Set theory</h4>
-<p>Consider the foundation axiom <span class="math inline">∀<em>a</em>.(∀<em>x</em>.(<em>x</em> ∈ <em>a</em> → <em>P</em>(<em>x</em>)) → <em>P</em>(<em>a</em>)) → ∀<em>a</em>.<em>P</em>(<em>a</em>)</span></p>
+<p>On falsity values, define the relation <span class="math inline"><em>a</em> ≲ <em>b</em></span> when <span class="math inline"><em>a</em> → <em>b</em></span> is realised by a
+proof-like term.</p>
+<ul>
+<li>The relation <span class="math inline">≲</span> is a preorder.</li>
+<li>It extends <span class="math inline">⊇</span> (is <span class="math inline"><em>a</em> ⊇ <em>b</em></span> then <span class="math inline"><em>λ</em><em>x</em>.<em>x</em> ⊩ <em>a</em> → <em>b</em></span>).</li>
+<li>It makes the set of falsity values a Boolean algebra.</li>
+</ul>
+<p>Then <span class="math inline"><em>𝒯</em><sub>⫫</sub></span> is the
+set of formulas interpreted by <span class="math inline">⊤</span> in
+this Boolean algebra.</p>
+<h4 class="unnumbered" id="models">Models</h4>
+<p>Models of <span class="math inline"><em>𝒯</em><sub>⫫</sub></span> are
+<em>realisability models</em> induced by <span class="math inline">⫫</span>.</p>
+<ul>
+<li>Realisability models satisfy all axioms of second-order logic.</li>
+<li>In the degenerate <span class="math inline"> ⫫  = ∅</span>, they are
+equivalent to <span class="math inline"><em>ℳ</em></span>.</li>
+</ul>
+</div>
+<div id="arithmetics" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Arithmetics</h1>
+<p>Consider the particular case of arithmetic, with <span class="math inline"><em>ℕ</em></span> as the interpretation
+structure.</p>
+<ul>
+<li>Given two closed first-order terms <span class="math inline"><em>s</em></span> and <span class="math inline"><em>t</em></span>, <span class="math inline">⟦<em>s</em> = <em>t</em>⟧</span> is <span class="math inline">⟦∀<em>α</em>.<em>α</em> → <em>α</em>⟧</span> if
+<span class="math inline"><em>ℕ</em> ⊨ <em>s</em> = <em>t</em></span>,
+it is <span class="math inline">⟦⊤ → ⊥⟧</span> if <span class="math inline"><em>ℕ</em> ⊨ <em>s</em> ≠ <em>t</em></span>.</li>
+<li>Horn clauses <span class="math inline">∀<em>x</em><sub>1</sub>⋯∀<em>x</em><sub><em>m</em></sub><em>E</em><sub>1</sub> → ⋯ → <em>E</em><sub><em>n</em></sub> → <em>G</em></span>
+(where the <span class="math inline"><em>E</em><sub><em>i</em></sub></span> and <span class="math inline"><em>G</em></span> are equalities or <span class="math inline">⊥</span>) which are true in <span class="math inline"><em>ℕ</em></span> are universally realised.</li>
+<li>In particular, all axioms of basic arithmetic hold in realisability
+models.</li>
+</ul>
+<p>Define <span class="math inline"><em>𝐍</em>(<em>n</em>) := ∀<em>α</em>.((∀<em>x</em>.<em>α</em>(<em>x</em>) → <em>α</em>(<em>x</em> + 1)) → <em>α</em>(0) → <em>α</em>(<em>n</em>))</span>.</p>
+<ul>
+<li><span class="math inline"><em>𝐍</em>(42)</span> specifies a Church
+numerals that iterates 42 times</li>
+<li>The recurrence axiom <span class="math inline">∀<em>x</em>.<em>𝐍</em>(<em>x</em>)</span> generally
+does not hold — it would be a term that behaves like <em>all</em>
+numbers at the same time.</li>
+</ul>
+<p>Arithmetic statements can be relativised to <span class="math inline"><em>𝐍</em></span> : define <span class="math inline">∀<sup><em>𝐍</em></sup><em>x</em>.<em>P</em></span>
+as <span class="math inline">∀<em>x</em>.<em>𝐍</em>(<em>x</em>) → <em>P</em></span>.</p>
+<ul>
+<li>Stating that an operation is internal to <span class="math inline"><em>𝐍</em></span> means computing it : <span class="math inline">∀<sup><em>𝐍</em></sup><em>m</em>.∀<sup><em>𝐍</em></sup><em>n</em>.<em>𝐍</em>(<em>m</em> + <em>n</em>)</span></li>
+<li>Mathematical statements specify behaviours : <span class="math inline">∀<sup><em>𝐍</em></sup><em>p</em>.∀<sup><em>𝐍</em></sup><em>q</em>.(<em>p</em> × <em>q</em> = <em>n</em> → <em>p</em> = 1 ∨ <em>q</em> = 1)</span></li>
+</ul>
+<p>Realisability models contain models of second-order arithmetic, plus
+other objects.</p>
+</div>
+<div id="model-theoretic-axioms" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Model theoretic axioms</h1>
+<h4 class="unnumbered" id="the-axiom-of-choice">The axiom of choice</h4>
+<p><span class="math display">∀<em>R</em>.(∀<sup><em>𝐍</em></sup><em>n</em>.∃<sup><em>𝐍</em></sup><em>m</em>.<em>R</em>(<em>n</em>, <em>m</em>) → ∃<em>F</em>.∀<sup><em>𝐍</em></sup><em>n</em> ∈ <em>N</em>.∃!<sup><em>𝐍</em></sup><em>p</em>.(<em>F</em>(<em>n</em>, <em>p</em>) ∧ <em>R</em>(<em>n</em>, <em>p</em>)))</span></p>
+<p>Krivine knows how to realise this by extending the language with an
+extra instruction (essentially memoizing calls to <span class="math inline"><em>R</em></span> to make sure that <span class="math inline"><em>F</em></span> is properly functional), yet most
+realisability models do not satisfy it.</p>
+<p>For each <span class="math inline"><em>n</em> ∈ <em>ℕ</em></span>,
+define <span class="math inline">∇<sub><em>n</em></sub>(<em>x</em>)</span> as the
+formula <span class="math inline"><em>x</em> + 1 ≤ <em>n</em></span>
+(where <span class="math inline"><em>x</em> ≤ <em>y</em></span> is <span class="math inline">∃<em>t</em>.<em>x</em> + <em>t</em> = <em>y</em></span>).</p>
+<ul>
+<li>Then <span class="math inline">∀<em>x</em>.∇<sub><em>n</em></sub>(<em>x</em>) → (<em>x</em> = 0 ∨ ⋯ ∨ <em>x</em> = <em>n</em> − 1)</span>
+is not universally realised.</li>
+<li>Further study of <span class="math inline"><em>𝒯</em><sub>⫫</sub></span>, assuming <span class="math inline">∃<em>x</em>.¬<em>𝐍</em>(<em>x</em>)</span> is
+realised, reveals that the <span class="math inline">∇<sub><em>n</em></sub></span> cannot be
+well-ordered, which refutes the axiom of choice.</li>
+<li>Considered as subsets of <span class="math inline"><em>ℕ</em></span>, they form a sequence where each
+element strictly injects into the next. This also contradicts the
+continuum hypothesis.</li>
+</ul>
+<h4 class="unnumbered" id="the-foundation-axiom-in-set-theory">The
+foundation axiom in set theory</h4>
+<p>On the language of set theory, consider the foundation axiom <span class="math inline">∀<em>a</em>.(∀<em>x</em>.(<em>x</em> ∈ <em>a</em> → <em>P</em>(<em>x</em>)) → <em>P</em>(<em>a</em>)) → ∀<em>a</em>.<em>P</em>(<em>a</em>)</span></p>
 <ul>
 <li>It is the type of a fixed point : <span class="math inline"><em>Y</em></span> such that <span class="math inline"><em>Y</em><em>φ</em> ≻ <em>φ</em>(<em>Y</em><em>φ</em>)</span></li>
 <li>Proving that <span class="math inline"><em>φ</em></span> is well
 typed is equivalent to proving that recursion terminates.</li>
 </ul>
-<p>Other statements specify complicated things…</p>
-<!--
-## Algebraisation
-
-### Generalising the construction
-
-The construction of classical realisability is clever but it looks ad-hoc in
-various ways, we look for cleaner structure.
-
-- For most purposes, a term $M$ can be identified with the falsity value
-  $\{M\}^⫫$ of tests that it passes.
-
-- Inclusion of falsity values reflects all the basic structure:
-
-  - $⟦P⟧ ⊆ ⟦Q⟧$ when $Q$ is a subtype of $P$
-  - $⟦P⟧ ⊆ \{M\}^⫫$ when $M$ is a realiser of $P$
-  - $\{M\}^⫫ ⊆ \{N\}^⫫$ when $M$ somehow reduces to $N$
-
-- Falsity values form a complete lattice.
-
-### Implicative algebras
-
-- An *implicative structure* is a complete lattice such that…
-
-# Concurrent realisability
-
-## Testing semantics
-
-### Testing
-
-## Linear structure of behaviours
-
-### Linearity
-
-## Session-typed processes
-
-### Sessions
-
-## Conjunctive structures
-
-### CS
-
-# The end {.unnumbered .unlisted}
--->
 </div>
 
 
-<div id="references" class="title-slide slide section level1 unnumbered unlisted">
-<h1 class="unnumbered unlisted">References</h1>
+<div id="algebraisation" class="title-slide slide section level1" number="4">
+<h1><span class="header-section-number">4</span> Algebraisation</h1>
 <div class="local-toc">
 <ul>
 </ul>
 </div>
 </div>
-<div id="references-1" class="slide section level3 unnumbered">
+<div id="generalising-the-construction" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Generalising the construction</h1>
+<p>The construction of classical realisability is clever but it looks
+ad-hoc in various ways, we look for cleaner structure.</p>
+<ul>
+<li><p>Inclusion of falsity values reflects all the basic
+structure :</p>
+<ul>
+<li><span class="math inline">⟦<em>Q</em>⟧ ⊇ ⟦<em>P</em>⟧</span> when
+<span class="math inline"><em>Q</em></span> is a subtype of <span class="math inline"><em>P</em></span></li>
+<li><span class="math inline">{<em>M</em>}<sup>⫫</sup> ⊇ ⟦<em>P</em>⟧</span> when
+<span class="math inline"><em>M</em></span> is a realiser of <span class="math inline"><em>P</em></span></li>
+<li><span class="math inline">{<em>M</em>}<sup>⫫</sup> ⊇ {<em>N</em>}<sup>⫫</sup></span>
+when <span class="math inline"><em>M</em></span> somehow reduces to
+<span class="math inline"><em>N</em></span></li>
+</ul></li>
+<li><p>Falsity values form a complete lattice.</p></li>
+<li><p>For most purposes, a term <span class="math inline"><em>M</em></span> can be identified with the falsity
+value <span class="math inline">{<em>M</em>}<sup>⫫</sup></span> of tests
+that it passes.</p></li>
+</ul>
+</div>
+<div id="implicative-structures" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Implicative structures</h1>
+<h4 class="unnumbered" id="definition-3">Definition</h4>
+<ul>
+<li>An <em>implicative structure</em> is a complete lattice <span class="math inline">(<em>A</em>, ≤)</span> equipped with an operator
+<span class="math inline"> →  : <em>A</em> × <em>A</em> → <em>A</em></span>
+that
+<ul>
+<li>is contravariant on the left : <span class="math inline"><em>a</em> ≤ <em>a</em>′</span> implies <span class="math inline"><em>a</em>′ → <em>b</em> ≤ <em>a</em> → <em>b</em></span></li>
+<li>commutes to meets on the right : <span class="math inline"><em>a</em> → ⋀<em>B</em> = ⋀<sub><em>b</em> ∈ <em>B</em></sub>(<em>a</em> → <em>b</em>)</span></li>
+</ul></li>
+<li>Application is defined by adjunction on the arrow :<br />
+<span class="math inline"><em>a</em> ⋅ <em>b</em> := ⋀{<em>c</em> ∣ <em>a</em> ≤ <em>b</em> → <em>c</em>}</span>
+so that for all <span class="math inline"><em>c</em></span>, <span class="math inline"><em>a</em> ⋅ <em>b</em> ≤ <em>c</em></span> iff
+<span class="math inline"><em>a</em> ≤ <em>b</em> → <em>c</em></span>.</li>
+</ul>
+<h4 class="unnumbered" id="examples-1">Examples</h4>
+<ul>
+<li>If <span class="math inline">⫫</span> is a pole, the set <span class="math inline"><em>ℱ</em></span> of sets of stacks (falsity values)
+is an implicative structure with <span class="math inline"><em>a</em> ≤ <em>b</em></span> if <span class="math inline"><em>a</em> ⊇ <em>b</em></span> and<br />
+<span class="math inline"><em>a</em> → <em>b</em> := {<em>M</em> ⋅ <em>π</em> ∣ <em>M</em> ⊆ <em>a</em><sup>⫫</sup>, <em>π</em> ∈ <em>b</em>}</span>,
+and <span class="math inline"><em>a</em> ⋅ <em>b</em> = {<em>π</em> ∣ ∀<em>M</em> ∈ <em>b</em><sup>⫫</sup>, <em>M</em> ⋅ <em>π</em> ∈ <em>a</em>}</span>.</li>
+<li>If <span class="math inline"><em>𝒜</em></span> is a complete Heyting
+algebra, then <span class="math inline"><em>a</em> → <em>b</em> := ⋁{<em>c</em> ∣ <em>c</em> ∧ <em>a</em> ≤ <em>b</em>}</span>
+makes it an implicative structure and <span class="math inline">⋅</span>
+is <span class="math inline">∧</span>.</li>
+<li>If <span class="math inline"><em>𝒜</em></span> is a PCA, then <span class="math inline"><em>𝒫</em>(<em>𝒜</em>)</span> with <span class="math inline"><em>a</em> → <em>b</em> := {<em>p</em> ∣ ∀<em>q</em> ∈ <em>a</em>, <em>p</em><em>q</em> ∈ <em>b</em>}</span>
+is (almost) an implicative structure<br />
+and <span class="math inline"><em>a</em> ⋅ <em>b</em> = {<em>p</em> ⋅ <em>q</em> ∣ <em>p</em> ∈ <em>a</em>, <em>q</em> ∈ <em>b</em>}</span>.</li>
+</ul>
+<div class="cite">
+<p><span class="citation">Miquel (2020)</span></p>
+</div>
+</div>
+<div id="general-observations" class="slide section level3 unnumbered">
+<h1 class="unnumbered">General observations</h1>
+<p>Elements of an implicative represent behaviours, they can be seen
+indifferently as types or as programs.</p>
+<ul>
+<li><p>The structure allows to define combinators by their specification
+in any structure (but some may be degenerate) :</p>
+<ul>
+<li><span class="math inline"><em>𝐊</em> := ⋀<sub><em>a</em>, <em>b</em></sub> <em>a</em> → <em>b</em> → <em>a</em></span></li>
+<li><span class="math inline"><em>𝐒</em> := ⋀<sub><em>a</em>, <em>b</em>, <em>c</em></sub> (<em>a</em> → <em>b</em> → <em>c</em>) → (<em>a</em> → <em>b</em>) → <em>a</em> → <em>c</em></span></li>
+<li><span class="math inline"><em>𝐜</em> := ⋀<sub><em>a</em>, <em>b</em></sub> ((<em>a</em> → <em>b</em>) → <em>a</em>) → <em>a</em></span></li>
+</ul></li>
+<li><p>Any function <span class="math inline"><em>f</em> : <em>𝒜</em> → <em>𝒜</em></span> induces
+an element <span class="math inline"><em>λ</em><em>f</em> := ⋀<sub><em>a</em></sub>(<em>a</em> → <em>f</em>(<em>a</em>))</span>,<br />
+all λ-terms can be interpreted this way.</p></li>
+<li><p>Computational properties appear abstractly :</p>
+<ul>
+<li><span class="math inline">(<em>a</em> → <em>b</em>)<em>a</em> ≤ <em>b</em></span>
+hence <span class="math inline">(<em>λ</em><em>f</em>)<em>a</em> ≤ <em>f</em>(<em>a</em>)</span>
+— β-reduction</li>
+<li><span class="math inline"><em>a</em> ≤ <em>b</em> → <em>a</em><em>b</em></span>
+hence <span class="math inline"><em>a</em> ≤ <em>λ</em>(<em>b</em> ↦ <em>a</em><em>b</em>)</span>
+— η-expansion</li>
+</ul></li>
+<li><p>The implicative structure includes uniform and non-uniform
+constructs :</p>
+<ul>
+<li>the product <span class="math inline"><em>A</em> × <em>B</em> := ∀<em>α</em>.(<em>A</em> → <em>B</em> → <em>α</em>) → <em>α</em></span>
+is a constructive conjunction</li>
+<li>the meet <span class="math inline"><em>A</em> ∧ <em>B</em></span> is
+a <em>uniform</em> conjunction (a.k.a. intersection type)</li>
+<li><span class="math inline"><em>A</em> ∧ <em>B</em> → <em>A</em> × <em>B</em></span>
+is always realised, the reverse only in degenerate models</li>
+</ul></li>
+</ul>
+</div>
+<div id="separators-and-consistency" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Separators and consistency</h1>
+<h4 class="unnumbered" id="definition-4">Definition</h4>
+<p>A <em>separator</em> of an implicative structure <span class="math inline"><em>𝒜</em></span> is a subset <span class="math inline"><em>𝒮</em> ⊆ <em>𝒜</em></span> that</p>
+<ul>
+<li>is upwards closed : if <span class="math inline"><em>b</em> ≥ <em>a</em> ∈ <em>𝒮</em></span> then
+<span class="math inline"><em>b</em> ∈ <em>𝒮</em></span>,</li>
+<li>contains <span class="math inline"><em>𝐊</em></span> and <span class="math inline"><em>𝐒</em></span>,</li>
+<li>is stable under <em>modus ponens</em> : if <span class="math inline"><em>a</em> → <em>b</em> ∈ <em>𝒮</em></span> and
+<span class="math inline"><em>a</em> ∈ <em>𝒮</em></span> then <span class="math inline"><em>b</em> ∈ <em>𝒮</em></span>.</li>
+</ul>
+<p>A separator <span class="math inline"><em>𝒮</em></span> is
+<em>consistent</em> if <span class="math inline">⊥ ∉ <em>𝒮</em></span>,
+<em>classical</em> if <span class="math inline"><em>𝐜</em> ∈ <em>𝒮</em></span>.</p>
+<h4 class="unnumbered" id="remarks">Remarks</h4>
+<ul>
+<li>The first condition recalls the one on poles, it accounts for
+execution dynamics and logical consequence.</li>
+<li>The other two are analogue to provability rules in Hilbert-style
+proofs.</li>
+<li>Stability under <em>modus ponens</em> implies stability under
+application, hence all pure λ-terms are representable in all
+separators.</li>
+</ul>
+</div>
+<div id="entailment-in-implicative-algebras" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Entailment in implicative algebras</h1>
+<p>Given a implicative structure <span class="math inline"><em>𝒜</em></span> and a separator <span class="math inline"><em>𝒮</em></span>, define <em>entailment</em> as
+<span class="math inline"><em>a</em>⊢<sub><em>𝒮</em></sub><em>b</em></span>
+when <span class="math inline">(<em>a</em> → <em>b</em>) ∈ <em>𝒮</em></span>.</p>
+<ul>
+<li>Entailment is a preorder.</li>
+<li>It extends <span class="math inline">≤</span> (since <span class="math inline"><em>a</em> ≤ <em>b</em></span> implies <span class="math inline"><em>λ</em><em>x</em>.<em>x</em> ≤ <em>a</em> → <em>b</em></span>).</li>
+<li>The quotient <span class="math inline"><em>𝒜</em>/<em>𝒮</em></span>
+of <span class="math inline"><em>𝒜</em></span> under the associated
+equivalence is a Heyting algebra.</li>
+<li>It is a Boolean algebra if <span class="math inline"><em>𝐜</em> ∈ <em>𝒮</em></span>.</li>
+</ul>
+<p>Usual model-theoretic techniques follow :</p>
+<ul>
+<li>If <span class="math inline">⊥ ∉ <em>𝒮</em></span> then the theory
+<span class="math inline"><em>𝒯</em><sub><em>𝒮</em></sub></span> of
+formulas interpreted by <span class="math inline">⊤</span> in <span class="math inline"><em>𝒜</em>/<em>𝒮</em></span> is consistent.</li>
+<li>If <span class="math inline"><em>𝒮</em></span> is maximal among
+consistent separators, then <span class="math inline"><em>𝒜</em>/<em>𝒮</em></span> is the 2-element
+Boolean algebra and <span class="math inline"><em>𝒯</em><sub><em>𝒮</em></sub></span> is
+complete.</li>
+</ul>
+<p>This applies even when <span class="math inline"><em>𝒮</em></span> is
+not classical.</p>
+</div>
+
+<div id="concurrent-realisability" class="title-slide slide section level1" number="5">
+<h1><span class="header-section-number">5</span> Concurrent
+realisability</h1>
+<div class="local-toc">
+<ul>
+<li><a href="#models-of-concurrency" class="local-toc-link">Models of
+concurrency</a></li>
+<li><a href="#logics-for-process-behaviours" class="local-toc-link">Logics for process behaviours</a></li>
+<li><a href="#linear-conjunctive-algebras" class="local-toc-link">Linear
+conjunctive algebras</a></li>
+</ul>
+</div>
+</div>
+<div id="models-of-concurrency" class="title-slide slide section level2" number="5.1">
+<h1><span class="header-section-number">5.1</span> Models of
+concurrency</h1>
+
+</div>
+<div id="process-algebras-ccs" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Process algebras : CCS</h1>
+<p>We use a formal language to represent programs that interact by
+message passing :</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline"><em>a</em>.<em>P</em></span>,
+<span class="math inline"><em>ā</em>.<em>P</em></span></td>
+<td align="left">action prefix</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline"><em>P</em> ∥ <em>Q</em></span>, <span class="math inline"><em>P</em> + <em>Q</em></span>, <span class="math inline">1</span></td>
+<td align="left">parallel composition, choice, stop</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">!<em>P</em></span></td>
+<td align="left">replication</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">(<em>ν</em><em>a</em>)<em>P</em></span></td>
+<td align="left">name restriction</td>
+</tr>
+</tbody>
+</table>
+<p>One can define the dynamics as a <em>reduction</em> up to structural
+congruence :</p>
+<p><span class="math display">(<em>a</em>.<em>P</em> + <em>P</em>′) ∥ (<em>ā</em>.<em>Q</em> + <em>Q</em>′) ⟶ <em>P</em> ∥ <em>Q</em></span></p>
+<p>Structural congruence <span class="math inline">≡</span> makes <span class="math inline">∥</span> a commutative monoid law with <span class="math inline">1</span> as neutral and makes name restriction
+behave right.</p>
+<p>Non-determinism is unavoidable :</p>
+<p><span class="math display"><em>ā</em>.1 ∥ <em>a</em>.<em>Q</em> ∥ <em>a</em>.<em>R</em> ⟶ 1 ∥ <em>Q</em> ∥ <em>a</em>.<em>R</em></span>
+<span class="math display"><em>ā</em>.1 ∥ <em>a</em>.<em>Q</em> ∥ <em>a</em>.<em>R</em> ⟶ 1 ∥ <em>a</em>.<em>Q</em> ∥ <em>R</em></span></p>
+</div>
+<div id="process-algebras-the-π-calculus" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Process algebras : the π-calculus</h1>
+<p>An extension of CCS where actions can communicate <em>names</em>
+which can be used themselves for communication.</p>
+<p>Notation :</p>
+<ul>
+<li><span class="math inline"><em>a</em>(<em>x</em>).<em>P</em></span>
+means “receive a name on channel on <span class="math inline"><em>a</em></span>, bind it to <span class="math inline"><em>x</em></span> then do <span class="math inline"><em>P</em></span>”</li>
+<li><span class="math inline"><em>a</em><em>b</em>.<em>P</em></span>
+means “send the name <span class="math inline"><em>b</em></span> on
+channel <span class="math inline"><em>a</em></span> then do <span class="math inline"><em>P</em></span>”</li>
+</ul>
+<p>Name passing can reveal new possible interactions</p>
+<p><span class="math display"><em>a</em>(<em>x</em>).<em>x</em><em>c</em>.1 ∥ <em>a</em><em>b</em>.1 ∥ <em>b</em>(<em>z</em>).<em>P</em> ⟶ <em>b</em><em>c</em>.1 ∥ 1 ∥ <em>b</em>(<em>z</em>).<em>P</em> ⟶ 1 ∥ 1 ∥ <em>P</em>[<em>z</em> := <em>c</em>]</span></p>
+<p>Name passing represents “mobile” processes, with dynamic
+connections.</p>
+<ul>
+<li>It is expressive enough to implement the λ-calculus.</li>
+<li>It has variants : polyadic, asynchronous…</li>
+<li>It has various type disciplines</li>
+</ul>
+</div>
+<div id="the-world-of-process-calculi-is-a-mess" class="slide section level3 unnumbered">
+<h1 class="unnumbered">The world of process calculi is a mess</h1>
+<p>Many languages with various design choices</p>
+<ul>
+<li>more or less higher order</li>
+<li>more or less synchronous</li>
+<li>various restrictions on name passing</li>
+</ul>
+<p>Many ways to define equivalence of processes</p>
+<ul>
+<li>various forms of test</li>
+<li>a zoo of notions of bisimilarity</li>
+</ul>
+<p>Many encodings with various invariants</p>
+<ul>
+<li>translations between various calculi</li>
+<li>embeddings of λ-calculi</li>
+</ul>
+<p>And let us not speak (yet) about type systems.</p>
+</div>
+<div id="models-of-concurrency-traditionally" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Models of concurrency, traditionally</h1>
+<p>Event structures :</p>
+<ul>
+<li><em>events</em> are points in a partial order</li>
+<li><em>configurations</em> are particular sets of events (partial runs
+as histories)</li>
+<li><em>structures</em> are sets of configurations with consistency
+conditions</li>
+</ul>
+<p>Closely related to Scott’s domains, Girard’s coherence spaces,
+etc.<br />
+More recently exploited in <em>concurrent games</em>.</p>
+<p>Operational semantics, CCS as a model :</p>
+<ul>
+<li>use terms of a basic language to interpret programs from other
+languages</li>
+<li>structure the space using a notion of refinement :
+(bi)simulation</li>
+</ul>
+<p>Blurs the boundary between programs and types :</p>
+<ul>
+<li>specifications are themselves processes :<br />
+program <span class="math inline"><em>P</em></span> respects a
+specification <span class="math inline"><em>S</em></span> if <span class="math inline"><em>P</em></span> and <span class="math inline"><em>S</em></span> are bisimilar;</li>
+<li>a process is identified with the <em>space</em> of its observable
+behaviours.</li>
+</ul>
+</div>
+<div id="the-programme" class="slide section level3 unnumbered">
+<h1 class="unnumbered">The programme</h1>
+<p>We want a properly logical description of processes behaviours :</p>
+<ul>
+<li>Algebraic structure – for properly composing things</li>
+<li>Semantics – insights on the meaning of process constructs</li>
+<li>Typing – static description of dynamic objects, invariants</li>
+</ul>
+<p>We aim for an <em>analytic</em> approach :</p>
+<ul>
+<li>start from a model of interaction with few constraints a
+priori,</li>
+<li>be agnostic on the notion of refinement at work,</li>
+<li>extract logical principles from the structure.</li>
+</ul>
+<p>We look for the minimal logic for concurrency.</p>
+</div>
+
+<div id="logics-for-process-behaviours" class="title-slide slide section level2" number="5.2">
+<h1><span class="header-section-number">5.2</span> Logics for process
+behaviours</h1>
+
+</div>
+<div id="logics-for-concurrent-processes" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Logics for concurrent processes</h1>
+<p>One assigns <em>types</em> to different elements of the language in
+order to put constraints on the set of allowed expressions and thus
+statically ensure properties of terms :</p>
+<ul>
+<li>compatibility between senders and receivers,</li>
+<li>control on name usage,</li>
+<li>guarantees on global good behaviour,</li>
+<li>respect of communication protocols…</li>
+</ul>
+<p>Usually guided by computational concerns rather than logical
+consistency.</p>
+<div class="cite">
+<p><span class="citation">Sangiorgi and Walker (2001)</span></p>
+</div>
+<p>We would like to fit all these in a general realisability framework,
+which has to be <em>linear</em>.</p>
+</div>
+<div id="the-example-of-session-types" class="slide section level3 unnumbered">
+<h1 class="unnumbered">The example of session types</h1>
+<p>Session types describe the communication discipline on names.</p>
+<ul>
+<li><span class="math inline"><em>a</em> : <em>A</em> ⊗ <em>B</em></span> means
+“send a name <span class="math inline"><em>x</em></span> on <span class="math inline"><em>a</em></span> then behave as <span class="math inline"><em>A</em></span> on <span class="math inline"><em>x</em></span> and as <span class="math inline"><em>B</em></span> on <span class="math inline"><em>a</em></span>, independently”</li>
+<li><span class="math inline"><em>a</em> : <em>A</em> ⊸ <em>B</em></span> means
+“receive a name <span class="math inline"><em>x</em></span> on <span class="math inline"><em>a</em></span> then behave as <span class="math inline"><em>B</em></span> on <span class="math inline"><em>a</em></span>, assuming the environment behaves
+as <span class="math inline"><em>A</em></span> on <span class="math inline"><em>x</em></span>”</li>
+<li><span class="math inline"><em>a</em> : 𝟏</span> means “terminate the
+session on <span class="math inline"><em>a</em></span>”</li>
+</ul>
+<p>The logic for these behaviours is linear :</p>
+<table style="width:85%;">
+<colgroup>
+<col width="36%" />
+<col width="48%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="right"><span class="math inline"><em>P</em> ∷ <em>Γ</em> ⊢ <em>b</em> : <em>A</em></span>
+  <span class="math inline"><em>Q</em> ∷ <em>Δ</em> ⊢ <em>a</em> : <em>B</em></span></td>
+<td align="left">⇒  <span class="math inline">(<em>ν</em><em>b</em>)(<em>P</em> ∥ <em>a</em><em>b</em>.<em>Q</em>) ∷ <em>Γ</em>, <em>Δ</em> ⊢ <em>a</em> : <em>A</em> ⊗ <em>B</em></span></td>
+</tr>
+<tr class="even">
+<td align="right"><span class="math inline"><em>P</em> ∷ <em>Γ</em>, <em>x</em> : <em>A</em>, <em>a</em> : <em>B</em> ⊢ <em>b</em> : <em>C</em></span></td>
+<td align="left">⇒  <span class="math inline"><em>a</em>(<em>x</em>).<em>P</em> ∷ <em>Γ</em>, <em>a</em> : <em>A</em> ⊗ <em>B</em> ⊢ <em>b</em> : <em>C</em></span></td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="math inline"><em>P</em> ∷ <em>Γ</em>, <em>x</em> : <em>A</em> ⊢ <em>a</em> : <em>B</em></span></td>
+<td align="left">⇒  <span class="math inline"><em>a</em>(<em>x</em>).<em>P</em> ∷ <em>Γ</em> ⊢ <em>a</em> : <em>A</em> ⊸ <em>B</em></span></td>
+</tr>
+<tr class="even">
+<td align="right"><span class="math inline"><em>P</em> ∷ <em>Γ</em> ⊢ <em>a</em> : <em>A</em></span>
+  <span class="math inline"><em>Q</em> ∷ <em>Δ</em>, <em>b</em> : <em>B</em> ⊢ <em>c</em> : <em>C</em></span></td>
+<td align="left">⇒  <span class="math inline">(<em>ν</em><em>b</em>)(<em>P</em> ∥ <em>a</em><em>b</em>.<em>Q</em>) ∷ <em>Γ</em>, <em>Δ</em> ⊢ <em>c</em> : <em>C</em></span></td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">⇒  <span class="math inline">1 ∷  ⊢ <em>a</em> : 𝟏</span></td>
+</tr>
+<tr class="even">
+<td align="right"><span class="math inline"><em>P</em> ∷ <em>Γ</em> ⊢ <em>a</em> : <em>A</em></span></td>
+<td align="left">⇒  <span class="math inline"><em>P</em> ∷ <em>Γ</em>, <em>b</em> : 1 ⊢ <em>a</em> : <em>A</em></span></td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="math inline"><em>P</em> ∷ <em>Γ</em>, <em>a</em> : <em>A</em> ⊢ <em>b</em> : <em>B</em></span>
+  <span class="math inline"><em>Q</em> ∷ <em>Δ</em> ⊢ <em>a</em> : <em>A</em></span></td>
+<td align="left">⇒  <span class="math inline">(<em>ν</em><em>a</em>)(<em>P</em> ∥ <em>Q</em>) ∷ <em>Γ</em>, <em>Δ</em> ⊢ <em>b</em> : <em>B</em></span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>This can be extended to full linear logic.</li>
+<li>It is very “synthetic” and forces functional behaviours.</li>
+</ul>
+<div class="cite">
+<p><span class="citation">Honda (1993)</span>, <span class="citation">Caires, Pfenning, and Toninho (2016)</span></p>
+</div>
+</div>
+<div id="testing-as-orthogonality" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Testing as orthogonality</h1>
+<p>Consider a process algebra and define an observation as a set <span class="math inline">⫫</span> of processes, abstractly considered as
+<em>well-behaved</em>.</p>
+<ul>
+<li>may testing : <span class="math inline"> ⫫  = {<em>P</em> ∣ ∃<em>R</em>, <em>P</em>⟶<sup>*</sup><em>ω</em> ∥ <em>R</em>}</span>
+(where <span class="math inline"><em>ω</em></span> is a special action
+to represent success)</li>
+<li>fair testing : <span class="math inline"> ⫫  = {<em>P</em> ∣ ∀<em>P</em>⟶<sup>*</sup><em>Q</em>, ∃<em>R</em>, <em>Q</em>⟶<sup>*</sup><em>ω</em> ∥ <em>R</em>}</span></li>
+<li>termination : <span class="math inline">⫫</span> is the set of terms
+that have no infinite run</li>
+<li>many other choices</li>
+</ul>
+<p>Deduce orthogonality :</p>
+<ul>
+<li><span class="math inline"><em>P</em> ⫫ <em>Q</em></span> if <span class="math inline"><em>P</em> ∥ <em>Q</em> ∈ ⫫</span></li>
+<li><span class="math inline"><em>P</em> ≃ <em>Q</em></span> if <span class="math inline">{<em>P</em>}<sup>⫫</sup> = {<em>Q</em>}<sup>⫫</sup></span></li>
+</ul>
+<p>Orthogonal sets form a complete lattice of behaviours.</p>
+</div>
+<div id="combinations-of-behaviours" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Combinations of behaviours</h1>
+<p>Start with parallel composition of independent behaviours.</p>
+<ul>
+<li>Assume a pair of injections <span class="math inline"><em>ℓ</em>, <em>r</em> : <em>N</em> → <em>N</em></span>
+over names, with disjoint images — split the set of name into
+independent name spaces</li>
+<li>If <span class="math inline"><em>P</em></span> is a term, write
+<span class="math inline"><em>P</em>[<em>ℓ</em>]</span> for <span class="math inline"><em>P</em></span> renamed by <span class="math inline"><em>ℓ</em></span></li>
+<li>Define multiplicative conjunction by its generators : <span class="math display"><em>A</em> ⊗ <em>B</em> := {<em>P</em>[<em>ℓ</em>] ∥ <em>Q</em>[<em>r</em>]; <em>P</em> ∈ <em>A</em>, <em>Q</em> ∈ <em>B</em>}<sup> ⫫ ⫫</sup></span></li>
+<li>Define implication by duality : <span class="math display"><em>A</em> ⊸ <em>B</em> := (<em>A</em> ⊗ <em>B</em><sup>⫫</sup>)<sup>⫫</sup> = {<em>P</em>[<em>ℓ</em>] ∥ <em>Q</em>[<em>r</em>]; <em>P</em> ∈ <em>A</em>, <em>Q</em> ∈ <em>B</em><sup>⫫</sup>}<sup>⫫</sup></span></li>
+<li>Deduce application by adjunction : <span class="math inline"><em>A</em> ∗ <em>B</em> ≤ <em>C</em></span> iff
+<span class="math inline"><em>A</em> ≤ <em>B</em> ⊸ <em>C</em></span>,
+<span class="math display"><em>A</em> ∗ <em>B</em> = {(<em>ν</em><em>ℓ</em>)(<em>P</em> ∥ <em>Q</em>[<em>ℓ</em>])[<em>r</em><sup>−1</sup>]; <em>P</em> ∈ <em>A</em>, <em>Q</em> ∈ <em>B</em>}<sup> ⫫ ⫫</sup></span></li>
+</ul>
+<p>This makes A nice structure compatible with multiplicative linear
+logic.</p>
+<p>Other logical constructs can be built on top :</p>
+<ul>
+<li>modalities <span class="math inline">⟨<em>a</em>⟩<em>A</em></span>
+and <span class="math inline">[<em>a</em>]<em>A</em></span> for
+behaviours that start with an action <span class="math inline"><em>a</em></span></li>
+<li>exponential modalities <span class="math inline">!<em>A</em></span>
+and <span class="math inline">?<em>A</em></span> for replicable
+processes</li>
+</ul>
+<div class="cite">
+<p><span class="citation">Beffara (2006)</span></p>
+</div>
+</div>
+
+<div id="linear-conjunctive-algebras" class="title-slide slide section level2" number="5.3">
+<h1><span class="header-section-number">5.3</span> Linear conjunctive
+algebras</h1>
+<!-- ### Conjunctive algebras -->
+</div>
+<div id="conjunctive-structures" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Conjunctive structures</h1>
+<h4 class="unnumbered" id="basic-structure">Basic structure</h4>
+<p>A conjunctive structure consists in</p>
+<ul>
+<li>a complete lattice <span class="math inline">(<em>𝒜</em>, ≤)</span>
+— behaviours ordered by refinement</li>
+<li>a monotonic binary operator <span class="math inline">⊗</span> —
+parallel composition of independent behaviours</li>
+<li>a contravariant unary operator <span class="math inline">(⋅)<sup>⊥</sup></span> — dual behaviour</li>
+</ul>
+<p>Add a few natural conditions.</p>
+<p>A conjunctive structure is <em>involutive</em> if <span class="math inline"><em>a</em><sup>⊥⊥</sup> = <em>a</em></span> for all
+<span class="math inline"><em>a</em> ∈ <em>𝒜</em></span>.</p>
+<h4 class="unnumbered" id="derived-operators">Derived operators</h4>
+<ul>
+<li><span class="math inline"><em>a</em> ⊸ <em>b</em> := (<em>a</em> ⊗ <em>b</em><sup>⊥</sup>)<sup>⊥</sup></span>
+— processes that react well to an offer of <span class="math inline"><em>a</em></span> and expectation of <span class="math inline"><em>b</em></span></li>
+<li><span class="math inline"><em>a</em> ∗ <em>b</em> := ⋁{<em>c</em>; <em>a</em> ≤ <em>b</em> ⊸ <em>c</em>}</span>
+— an abstract notion of <em>application</em> among realizers</li>
+<li>By construction, <span class="math inline"><em>a</em> ∗ <em>b</em> ≤ <em>c</em></span> iff
+<span class="math inline"><em>a</em> ≤ <em>b</em> → <em>c</em></span>.</li>
+</ul>
+<div class="cite">
+<p><span class="citation">Miquey (2020)</span></p>
+</div>
+</div>
+<div id="linear-conjunctive-algebras-1" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Linear conjunctive algebras</h1>
+<p>This structure allows for defining particular inhabitants of <span class="math inline"><em>𝒜</em></span>, following the ideas of
+implicative algebras :</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline"><em>𝐬</em><sub>1</sub></span></td>
+<td align="left"><span class="math inline">⋀<sub><em>a</em></sub> <em>a</em> ⊸ (<em>a</em> ⊗ <em>a</em>)</span></td>
+<td align="left">contraction</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline"><em>𝐬</em><sub>2</sub></span></td>
+<td align="left"><span class="math inline">⋀<sub><em>a</em>, <em>b</em></sub> (<em>a</em> ⊗ <em>b</em>) ⊸ <em>a</em></span></td>
+<td align="left">weakening</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline"><em>𝐬</em><sub>3</sub></span></td>
+<td align="left"><span class="math inline">⋀<sub><em>a</em>, <em>b</em></sub> (<em>a</em> ⊗ <em>b</em>) ⊸ (<em>b</em> ⊗ <em>a</em>)</span></td>
+<td align="left">commutativity</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline"><em>𝐬</em><sub>4</sub></span></td>
+<td align="left"><span class="math inline">⋀<sub><em>a</em>, <em>b</em>, <em>c</em></sub> (<em>a</em> ⊸ <em>b</em>) ⊸ (<em>c</em> ⊗ <em>a</em>) ⊸ (<em>c</em> ⊗ <em>b</em>)</span></td>
+<td align="left">functoriality</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline"><em>𝐬</em><sub>5</sub></span></td>
+<td align="left"><span class="math inline">⋀<sub><em>a</em>, <em>b</em>, <em>c</em></sub> (<em>a</em> ⊗ (<em>b</em> ⊗ <em>c</em>)) ⊸ ((<em>a</em> ⊗ <em>b</em>) ⊗ <em>c</em>))</span></td>
+<td align="left">associativity</td>
+</tr>
+</tbody>
+</table>
+<h4 class="unnumbered" id="conjunctive-algebras">Conjunctive
+algebras</h4>
+<p>A separator is a subset <span class="math inline"><em>𝒮</em> ⊆ <em>𝒜</em></span> that is upwards
+closed, stable under <em>modus ponens</em> (for the implication <span class="math inline">⊸</span>) and contains <span class="math inline"><em>𝐬</em><sub>1</sub>, …, <em>𝐬</em><sub>5</sub></span>.</p>
+<p>This is essentially equivalent to an implicative algebra.</p>
+<h4 class="unnumbered" id="linear-conjunctive-algebras-2">Linear
+conjunctive algebras</h4>
+<p>Removing <span class="math inline"><em>𝐬</em><sub>1</sub></span> and
+<span class="math inline"><em>𝐬</em><sub>2</sub></span> from the
+requirement on separators yields a <em>linear</em> conjunctive
+algebra.</p>
+<ul>
+<li>This models multiplicative linear logic.</li>
+<li>Extra constructs and axioms can be included to handle full linear
+logic.</li>
+</ul>
+</div>
+<div id="instances-of-linear-conjunctive-algebras" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Instances of linear conjunctive algebras</h1>
+<ul>
+<li><p>Phase spaces (the analogue of Heyting algebras for linear
+logic) :</p>
+<ul>
+<li>take a commutative monoid <span class="math inline"><em>M</em></span> and a subset <span class="math inline">⊥ ⊆ <em>M</em></span></li>
+<li>define orthogonality : <span class="math inline"><em>x</em> ⊥ <em>y</em></span> iff <span class="math inline"><em>x</em><em>y</em> ∈ <em>M</em></span></li>
+<li>set <span class="math inline"><em>𝒜</em> := {<em>a</em><sup>⊥</sup>; <em>a</em> ⊆ <em>M</em>}</span>
+and <span class="math inline"><em>a</em> ⊗ <em>b</em> := {<em>x</em><em>y</em>; <em>x</em> ∈ <em>a</em>, <em>y</em> ∈ <em>b</em>}<sup>⊥⊥</sup></span></li>
+</ul></li>
+<li><p>Coherence spaces (a standard model for proofs in linear
+logic) :</p>
+<ul>
+<li>for <span class="math inline"><em>x</em>, <em>y</em> ⊆ <em>ℕ</em></span>, set
+<span class="math inline"><em>x</em>⊥<em>y</em></span> iff <span class="math inline">♯(<em>x</em> ∩ <em>y</em>) ≤ 1</span></li>
+<li>set <span class="math inline"><em>𝒜</em> := {<em>a</em><sup>⊥</sup>; <em>a</em> ⊆ <em>𝒫</em>(<em>ℕ</em>)}</span></li>
+<li>set <span class="math inline"><em>a</em> ⊗ <em>b</em> := {<em>x</em> × <em>y</em>; <em>x</em> ∈ <em>a</em>, <em>y</em> ∈ <em>b</em>}<sup>⊥⊥</sup></span>
+for some bijection <span class="math inline">⟨,⟩ : <em>ℕ</em><sup>2</sup> → <em>ℕ</em></span></li>
+</ul>
+<p>… up to some details</p></li>
+<li><p>Lattices of process behaviours</p>
+<ul>
+<li>take <span class="math inline">⊗</span> as explained before for a
+generic composition structure</li>
+<li>add actions in <span class="math inline">⊗</span> to interpret
+session types</li>
+</ul></li>
+</ul>
+</div>
+<div id="open-questions" class="slide section level3 unnumbered">
+<h1 class="unnumbered">Open questions</h1>
+<p>We get a suitable structure to fit process behaviours, but…</p>
+<ul>
+<li><p>Only deterministic and functional processes are captured by pure
+linear logic, we need extra principles to describe useful concurrent
+phenomena</p>
+<ul>
+<li>Define <span class="math inline"><em>A</em> ∥ <em>B</em> := {<em>P</em> ∥ <em>Q</em>; <em>P</em> ∈ <em>A</em>, <em>Q</em> ∈ <em>B</em>}<sup> ⫫ ⫫</sup></span>,
+syntactically.</li>
+<li>Somehow, the <span class="math inline">∥</span> connective is to
+<span class="math inline">⊗</span> what <span class="math inline">∧</span> is to <span class="math inline">×</span> in
+implicative structures.</li>
+<li>The axioms it should satisfy are yet to be identified.</li>
+</ul></li>
+</ul>
+<div class="cite">
+<p><span class="citation">Beffara et al. (2023)</span></p>
+</div>
+<ul>
+<li><p>Specification techniques for concurrent realisability still have
+to be developed.</p></li>
+<li><p>How does the quantum λ-calculus fit in this framework?</p></li>
+</ul>
+</div>
+
+
+<div id="the-end" class="title-slide slide section level1 unnumbered unlisted">
+<h1 class="unnumbered unlisted">The end</h1>
+<div class="local-toc">
+<ul>
+</ul>
+</div>
+</div>
+<div id="references" class="slide section level3 unnumbered">
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-beffara-2006-concurrent" class="csl-entry">
+Beffara, Emmanuel. 2006. <span>“A Concurrent Model for Linear
+Logic.”</span> In <em>21st International Conference on Mathematical
+Foundations of Programming Semantics (MFPS)</em>, 155:147–68. Electronic
+Notes in Theoretical Computer Science. <a href="https://doi.org/10.1016/j.entcs.2005.11.055">https://doi.org/10.1016/j.entcs.2005.11.055</a>.
+</div>
+<div id="ref-beffara-2023-concurrent" class="csl-entry">
+Beffara, Emmanuel, Félix Castro, Mauricio Guillermo, and Étienne Miquey.
+2023. <span>“Concurrent Realizability on Conjunctive Structures.”</span>
+In <em>8th International Conference on Formal Structures for Computation
+and Deduction (FSCD 2023)</em>, edited by Marco Gaboardi and Femke van
+Raamsdonk, 260:28:1–21. Leibniz International Proceedings in Informatics
+(LIPIcs). Dagstuhl, Germany : Schloss Dagstuhl – Leibniz-Zentrum für
+Informatik. <a href="https://doi.org/10.4230/LIPIcs.FSCD.2023.28">https://doi.org/10.4230/LIPIcs.FSCD.2023.28</a>.
+</div>
+<div id="ref-caires-2016-linear" class="csl-entry">
+Caires, Luís, Frank Pfenning, and Bernardo Toninho. 2016. <span>“Linear
+Logic Propositions as Session Types.”</span> <em>Mathematical Structures
+in Computer Science</em> 26 (3) : 367–423. <a href="https://doi.org/10.1017/S0960129514000218">https://doi.org/10.1017/S0960129514000218</a>.
+</div>
 <div id="ref-girard-2017-transcendental" class="csl-entry">
 Girard, Jean-Yves. 2017. <span>“Transcendental Syntax I : Deterministic
 Case.”</span> <em>Mathematical Structures in Computer Science</em> 27
@@ -1105,6 +1740,11 @@ San Francisco, California, USA : Association for Computing Machinery. <a href=
 <div id="ref-heyting-1931-intuitionistische" class="csl-entry">
 Heyting, Arend. 1931. <span>“Die intuitionistische Grundlegung der
 Mathematik.”</span> <em>Erkenntnis</em> 2 (1) : 106–15. <a href="https://doi.org/10.1007/BF02028143">https://doi.org/10.1007/BF02028143</a>.
+</div>
+<div id="ref-honda-1993-types" class="csl-entry">
+Honda, Kohei. 1993. <span>“Types for Dyadic Interaction.”</span> In
+<em>CONCUR’93</em>, edited by Eike Best, 715:509–23. Lecture Notes in
+Computer Science. Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/3-540-57208-2_35">https://doi.org/10.1007/3-540-57208-2_35</a>.
 </div>
 <div id="ref-johansson-1937-minimalkalkul" class="csl-entry">
 Johansson, Ingebrigt. 1937. <span>“Der Minimalkalkül, ein reduzierter
@@ -1124,6 +1764,20 @@ Logik.”</span> <em>Mathematische Zeitschrift</em> 35 (1) : 58–65. <a href=
 Krivine, Jean-Louis. 2009. <span>“Realizability in Classical
 Logic.”</span> <em>Panoramas Et Synthèses</em>, Interactive models of
 computation and program behavior, 27 : 197–229. <a href="https://hal.archives-ouvertes.fr/hal-00154500">https://hal.archives-ouvertes.fr/hal-00154500</a>.
+</div>
+<div id="ref-miquel-2020-implicative" class="csl-entry">
+Miquel, Alexandre. 2020. <span>“Implicative Algebras : A New Foundation
+for Realizability and Forcing.”</span> <em>Mathematical Structures in
+Computer Science</em> 30 (5) : 458–510. <a href="https://doi.org/10.1017/S0960129520000079">https://doi.org/10.1017/S0960129520000079</a>.
+</div>
+<div id="ref-miquey-2020-revisiting" class="csl-entry">
+Miquey, Étienne. 2020. <span>“Revisiting the Duality of Computation : An
+Algebraic Analysis of Classical Realizability Models.”</span> In <em>CSL
+2020</em>. Barcelone, Spain. <a href="https://hal.archives-ouvertes.fr/hal-02305560">https://hal.archives-ouvertes.fr/hal-02305560</a>.
+</div>
+<div id="ref-sangiorgi-2001-pi-calculus" class="csl-entry">
+Sangiorgi, Davide, and David Walker. 2001. <em>The π-Calculus : A Theory
+of Mobile Processes</em>. Cambridge University Press. <a href="http://www.cs.unibo.it/~sangio/Book_pi.html">http://www.cs.unibo.it/~sangio/Book_pi.html</a>.
 </div>
 <div id="ref-troelstra-1988-constructivism" class="csl-entry">
 Troelstra, Anne Sjerp, and Dirk van Dalen. 1988. <em>Constructivism in
