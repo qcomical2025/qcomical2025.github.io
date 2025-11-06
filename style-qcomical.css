@@ -472,3 +472,27 @@ th {
   object-fit: contain;     /* mantiene proporciones 851x159 */
   margin: 0 auto;
 }
+
+/* Íconos para los enlaces de slides */
+a.pdf::before,
+a.html::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;   /* ajustá si querés más grande */
+  height: 18px;
+  margin-right: 4px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Icono PDF */
+a.pdf::before {
+  background-image: url("pdf.png");
+}
+
+/* Icono HTML */
+a.html::before {
+  background-image: url("html.png");
+}
